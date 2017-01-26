@@ -8,8 +8,8 @@ using namespace std;
 
 class bad_code{
 	private:
-		string code;
-		string message;
+		static string code;
+		static string message;
 	public:
 		bad_code(const string a, const string b){code=a; message=b;}
 		bad_code();
