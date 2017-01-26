@@ -1,0 +1,37 @@
+# Project: Progetto1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o rifiuti.o rif_plast.o rif_cart.o
+LINKOBJ  = main.o rifiuti.o rif_plast.o rif_cart.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = Progetto1.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+rifiuti.o: rifiuti.cpp
+	$(CPP) -c rifiuti.cpp -o rifiuti.o $(CXXFLAGS)
+
+rif_plast.o: rif_plast.cpp
+	$(CPP) -c rif_plast.cpp -o rif_plast.o $(CXXFLAGS)
+
+rif_cart.o: rif_cart.cpp
+	$(CPP) -c rif_cart.cpp -o rif_cart.o $(CXXFLAGS)
